@@ -68,56 +68,43 @@ class CardViewAdpater(var cardList : ArrayList<CardData>) : RecyclerView.Adapter
 
 
     inner class CardViewHolder1(private val binding : RecyclerviewItem1Binding) : RecyclerView.ViewHolder(binding.root){
-        private val positionCard : CardData ?= null
-//        init {
-//            // 클릭 리스너
-//            itemView.setOnClickListener {
-//                positionCard?.let{
-//                    onClick.invoke(it)
-//                }
-//            }
-//        }
 
         fun bind1(card : CardData){
-            binding.AndersonTv.text = card.name
-            binding.debitCardTv.text = card.cardName
-            binding.cardNumberTv.text = card.number.toString()
-            binding.cardDateTv.text = card.date
-            binding.cardPriceTv.text = "$" + DecimalFormat("#,#####").format(card.price).toString()
+            with(binding){
+                AndersonTv.text = card.name
+                debitCardTv.text = card.cardName
+                cardNumberTv.text = card.number
+                cardDateTv.text = card.date
+                cardPriceTv.text = "$" + DecimalFormat("#,##0.00").format(card.price).toString()
+            }
         }
     }
 
 
     inner class CardViewHolder2(private val binding : RecyclerviewItem2Binding) : RecyclerView.ViewHolder(binding.root){
 
-//        init {
-//            // 클릭 리스너
-
-//        }
-
         fun bind2(card : CardData){
-            binding.AndersonTv2.text = card.name
-            binding.debitCardTv2.text = card.cardName
-            binding.cardNumberTv2.text = card.number.toString()
-            binding.cardDateTv2.text = card.date
-            binding.cardPriceTv2.text = "$${card.price}"
+            with(binding){
+                AndersonTv2.text = card.name
+                debitCardTv2.text = card.cardName
+                cardNumberTv2.text = card.number
+                cardDateTv2.text = card.date
+                cardPriceTv2.text = "$" + DecimalFormat("#,##0.00").format(card.price).toString()
+            }
         }
     }
 
 
     inner class CardViewHolder3(private val binding : RecyclerviewItem3Binding) : RecyclerView.ViewHolder(binding.root){
 
-//        init {
-//            // 클릭 리스너
-
-//        }
-
         fun bind3(card : CardData){
-            binding.AndersonTv3.text = card.name
-            binding.debitCardTv3.text = card.cardName
-            binding.cardNumberTv3.text = card.number.toString()
-            binding.cardDateTv3.text = card.date
-            binding.cardPriceTv3.text = "$${card.price}"
+            with(binding){
+                AndersonTv3.text = card.name
+                debitCardTv3.text = card.cardName
+                cardNumberTv3.text = card.number
+                cardDateTv3.text = card.date
+                cardPriceTv3.text = "$" + DecimalFormat("#,##0.00").format(card.price).toString()
+            }
         }
     }
 
