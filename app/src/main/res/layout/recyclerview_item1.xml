@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+
+    <ImageView
+        android:id="@+id/background_card_iv"
+        android:layout_width="390dp"
+        android:layout_height="250dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/corner_card_item" />
+
+    <TextView
+        android:id="@+id/Anderson_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Anderson"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintStart_toStartOf="@+id/background_card_iv"
+        app:layout_constraintTop_toTopOf="@+id/background_card_iv" />
+
+    <TextView
+        android:id="@+id/debit_card_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="A Debit Card"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/Anderson_tv"
+        app:layout_constraintEnd_toEndOf="@+id/background_card_iv"
+        app:layout_constraintTop_toTopOf="@+id/Anderson_tv" />
+
+    <TextView
+        android:id="@+id/card_number_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2423 3581 9503 2412"
+        android:textColor="@color/white"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toStartOf="@+id/Anderson_tv"
+        app:layout_constraintTop_toBottomOf="@+id/Anderson_tv" />
+
+    <TextView
+        android:id="@+id/card_date_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="21/24"
+        android:textColor="@color/white"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/card_number_tv"
+        app:layout_constraintEnd_toEndOf="@+id/debit_card_tv"
+        app:layout_constraintTop_toTopOf="@+id/card_number_tv" />
+
+    <TextView
+        android:id="@+id/card_balance_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Balance"
+        android:textColor="#F6F6F6"
+        android:textSize="20sp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintStart_toStartOf="@+id/card_number_tv"
+        app:layout_constraintTop_toBottomOf="@+id/card_number_tv" />
+
+    <TextView
+        android:id="@+id/card_price_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$310003"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@+id/card_balance_tv"
+        app:layout_constraintTop_toBottomOf="@+id/card_balance_tv" />
+
+    <TextView
+        android:id="@+id/card_visa_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Visa"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/card_price_tv"
+        app:layout_constraintEnd_toEndOf="@+id/card_date_tv" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
