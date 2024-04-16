@@ -58,7 +58,6 @@ class CardViewAdpater(var cardList : ArrayList<CardData>) : RecyclerView.Adapter
             is CardViewHolder1 -> holder.bind1(cardlist)
             is CardViewHolder2 -> holder.bind2(cardlist)
             is CardViewHolder3 -> holder.bind3(cardlist)
-
             }
 
         holder.itemView.setOnClickListener {

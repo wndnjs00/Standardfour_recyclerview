@@ -15,7 +15,7 @@ fun CardDataList() : ArrayList<CardData>{
         CardData(
             id = 2,
             name = "Minju",
-            cardName = "A Hibrid Card",
+            cardName = "A Hybrid Card",
             number = "5423 3581 9503",
             date = "07/25",
             price = 4100.30,
