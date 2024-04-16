@@ -17,10 +17,11 @@ class DataSource {
         }
     }
 
-    fun getCardList() : ArrayList<CardData>{
+    fun getCardList() : List<CardData>{
         // 만들어놓은 데이터클래스 리턴
         return CardDataList()
     }
+
 
 
 

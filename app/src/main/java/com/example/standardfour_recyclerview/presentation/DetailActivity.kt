@@ -12,6 +12,7 @@ import com.example.standardfour_recyclerview.data.CardData
 import com.example.standardfour_recyclerview.data.DataSource
 import com.example.standardfour_recyclerview.databinding.ActivityDetailBinding
 import com.example.standardfour_recyclerview.databinding.ActivityMainBinding
+import java.text.DecimalFormat
 
 class DetailActivity : AppCompatActivity() {
 
@@ -19,18 +20,20 @@ class DetailActivity : AppCompatActivity() {
         ActivityDetailBinding.inflate(layoutInflater)
     }
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        // Bundle을 사용해서 전달한 데이터 받아옴
         val intent = getIntent()
         val cardItem = intent?.getParcelableExtra<CardData>("card")
 
         with(binding) {
-            detailCardnameTv.text = cardItem?.name
-            detailCardnunberTv.text = cardItem?.number
-            detailDateTv.text = cardItem?.date
-            detailPriceTv.text = cardItem?.price.toString()
+            detailCardnameTv.text = "이름: ${cardItem?.name}"
+            detailCardnunberTv.text = "카드번호: ${cardItem?.number}"
+            detailDateTv.text = "유효기간: ${cardItem?.date}"
+            detailPriceTv.text = "가격: $${DecimalFormat("#,##0.00").format(cardItem?.price)}"
         }
 
     }
