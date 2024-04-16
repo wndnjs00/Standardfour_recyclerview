@@ -1,6 +1,7 @@
 package com.example.standardfour_recyclerview.data
 
 import android.os.Parcelable
+import com.example.standardfour_recyclerview.presentation.enums.MultiViewEnum
 import kotlinx.parcelize.Parcelize
 
 
@@ -13,5 +14,5 @@ data class CardData(
     val date : String,       //유효기간
     val price : Double,      //가격
 
-    val type : Int           //멀티뷰타입
+    val type : MultiViewEnum   // 멀티뷰타입 -> enum class로 만든 클래스 선언
 ): Parcelable

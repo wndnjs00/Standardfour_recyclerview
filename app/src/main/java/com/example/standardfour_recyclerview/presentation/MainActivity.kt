@@ -20,44 +20,43 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
-    private val cardAdapter = CardViewAdpater(CardDataList())
+    // onClick메소드가 실행되면 람다식이 바로 실행되도록
+    private val cardAdapter : CardViewAdpater by lazy {
+        CardViewAdpater(cardList = ArrayList<CardData>()) { card ->
+            // DetailActivity로 이동하는 함수 실행
+            adapterClick(card)
+        }
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val datasource = DataSource.getDataSoures().getCardList()
-        cardAdapter.cardList = datasource as ArrayList<CardData>
+        val dataSource = DataSource.getDataSoures().getCardList()
+        cardAdapter.cardList = dataSource as ArrayList<CardData>
 
         with(binding.recyclerview){
             adapter = cardAdapter
+            layoutManager = LinearLayoutManager(this@MainActivity)
         }
-
-        binding.recyclerview.layoutManager = LinearLayoutManager(this)
 
         binding.priceTv.text = "$ ${DecimalFormat("#,##0.00").format(285856.20)}"
 
-        // 클릭 이벤트
-        cardAdapter.itemClick = itemClick()
     }
 
 
-    private fun itemClick() : CardViewAdpater.ItemClick{
-        return object : CardViewAdpater.ItemClick{
-            override fun onItemClick(view: View, position: Int) {
-                val intent = Intent(this@MainActivity, DetailActivity::class.java)
+    private fun adapterClick(card : CardData){
+        // MainActivity로 이동
+        val intent = Intent(this@MainActivity, DetailActivity::class.java)
 
-                // Bundle을 사용해서 데이터 전달
-                val datasource = DataSource.getDataSoures().getCardList()
-                val bundle = Bundle()
-                bundle.putParcelable("card", datasource[position])
-                intent.putExtras(bundle)
-                Log.d(TAG, bundle.toString())
+        // bundle로 데이터 전달
+        val bundle = Bundle()
+        bundle.putParcelable("card", card)
+        intent.putExtras(bundle)
+        Log.d(TAG, bundle.toString())
 
-                startActivity(intent)
-            }
-        }
+        startActivity(intent)
     }
 
 }

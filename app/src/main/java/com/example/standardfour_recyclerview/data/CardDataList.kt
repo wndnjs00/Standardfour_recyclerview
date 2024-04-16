@@ -1,5 +1,7 @@
 package com.example.standardfour_recyclerview.data
 
+import com.example.standardfour_recyclerview.presentation.enums.MultiViewEnum
+
 fun CardDataList() : ArrayList<CardData>{
 
     return arrayListOf(
@@ -10,7 +12,7 @@ fun CardDataList() : ArrayList<CardData>{
             number = "2423 3581 9503",
             date = "21/27",
             price = 3100.30,
-            type = 1
+            MultiViewEnum.MULTI_VIEWTYPE1
         ),
         CardData(
             id = 2,
@@ -19,7 +21,7 @@ fun CardDataList() : ArrayList<CardData>{
             number = "5423 3581 9503",
             date = "07/25",
             price = 4100.30,
-            type = 2
+            MultiViewEnum.MULTI_VIEWTYPE2
         ),
         CardData(
             id = 3,
@@ -28,7 +30,7 @@ fun CardDataList() : ArrayList<CardData>{
             number = "9423 3581 9503",
             date = "23/29",
             price = 4170.30,
-            type = 3
+            MultiViewEnum.MULTI_VIEWTYPE3
         ),
     )
 
