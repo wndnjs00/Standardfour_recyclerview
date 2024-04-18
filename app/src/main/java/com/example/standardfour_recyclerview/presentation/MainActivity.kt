@@ -34,11 +34,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val dataSource = DataSource.getDataSoures().getCardList()
-        cardAdapter.cardList = dataSource as ArrayList<CardData>
+        cardAdapter.cardList = dataSource as ArrayList<CardData>    // as 사용해서 타입지정
 
         with(binding.recyclerview){
-            adapter = cardAdapter
-            layoutManager = LinearLayoutManager(this@MainActivity)
+            adapter = cardAdapter   // 리사이클러뷰와 어뎁터 연결
+            layoutManager = LinearLayoutManager(this@MainActivity)  // LinearLayoutManager지정
         }
 
         binding.priceTv.text = "$ ${DecimalFormat("#,##0.00").format(285856.20)}"
@@ -52,7 +52,8 @@ class MainActivity : AppCompatActivity() {
 
         // bundle로 데이터 전달
         val bundle = Bundle()
-        bundle.putParcelable("card", card)
+        // 지정해둔 키값을 사용해서 넘기기
+        bundle.putParcelable(DetailActivity.EXTRA_CARD, card)
         intent.putExtras(bundle)
         Log.d(TAG, bundle.toString())
 

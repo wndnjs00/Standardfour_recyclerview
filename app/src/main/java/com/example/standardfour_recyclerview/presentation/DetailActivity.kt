@@ -20,6 +20,11 @@ class DetailActivity : AppCompatActivity() {
         ActivityDetailBinding.inflate(layoutInflater)
     }
 
+    // 어디서나 이 키값을 사용할수있게끔 지정
+    companion object{
+        const val EXTRA_CARD : String = "extra_card"
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +32,7 @@ class DetailActivity : AppCompatActivity() {
 
         // Bundle을 사용해서 전달한 데이터 받아옴
         val intent = getIntent()
-        val cardItem = intent?.getParcelableExtra<CardData>("card")
+        val cardItem = intent?.getParcelableExtra<CardData>(EXTRA_CARD)
 
         with(binding) {
             detailCardnameTv.text = "이름: ${cardItem?.name}"
