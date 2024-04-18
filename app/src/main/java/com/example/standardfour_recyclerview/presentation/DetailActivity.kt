@@ -20,7 +20,7 @@ class DetailActivity : AppCompatActivity() {
         ActivityDetailBinding.inflate(layoutInflater)
     }
 
-    // 어디서나 이 키값을 사용할수있게끔 지정
+    // 어디서나 이 키값을 사용할수있게끔 지정!
     companion object{
         const val EXTRA_CARD : String = "extra_card"
     }
