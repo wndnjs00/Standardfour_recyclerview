@@ -10,9 +10,10 @@ import com.example.standardfour_recyclerview.databinding.RecyclerviewItem3Bindin
 import com.example.standardfour_recyclerview.presentation.enums.MultiViewEnum
 import java.text.DecimalFormat
 
-class CardViewAdpater(var cardList : ArrayList<CardData>, private val onClick : (CardData) -> Unit) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class CardViewAdpater(var cardList : List<CardData>, private val onClick : (CardData) -> Unit) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 
+    // 레이아웃 연결
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         return when(viewType){
@@ -33,12 +34,13 @@ class CardViewAdpater(var cardList : ArrayList<CardData>, private val onClick : 
         }
     }
 
+    // 아이템 개수 리턴
     override fun getItemCount(): Int {
         return cardList.size
     }
 
 
-    // 멀티뷰타입은 getItemViewType을 설정해줘야함
+    // 멀티뷰타입은 getItemViewType을 오버라이딩 해줘야함
     // postion에 따라 어떤 뷰타입을 가져야되는지 연결해줘야함
     override fun getItemViewType(position: Int): Int {
         return when(position){
@@ -50,6 +52,7 @@ class CardViewAdpater(var cardList : ArrayList<CardData>, private val onClick : 
     }
 
 
+    // 데이터 연결
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val cardlist = cardList[position]
 

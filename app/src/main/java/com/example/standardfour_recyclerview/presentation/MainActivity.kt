@@ -4,12 +4,16 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.standardfour_recyclerview.ViewModel.CardViewModel
+import com.example.standardfour_recyclerview.ViewModel.CardViewModelFactory
 import com.example.standardfour_recyclerview.data.CardData
 import com.example.standardfour_recyclerview.data.CardDataList
 import com.example.standardfour_recyclerview.data.DataSource
 import com.example.standardfour_recyclerview.databinding.ActivityMainBinding
+import com.example.standardfour_recyclerview.extension.launchActivity
 import java.text.DecimalFormat
 import java.util.zip.DataFormatException
 
@@ -28,13 +32,23 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // ViewModel 선언
+    private val cardViewModel by viewModels<CardViewModel>{
+        CardViewModelFactory()
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val dataSource = DataSource.getDataSoures().getCardList()
-        cardAdapter.cardList = dataSource as ArrayList<CardData>    // as 사용해서 타입지정
+//        val dataSource = DataSource.getDataSoures().getCardList()
+//        cardAdapter.cardList = dataSource as ArrayList<CardData>
+
+        // DataSource를 통해 가져왔던부분을 ViewModel을 사용해서 받아와줌
+        val cardLists = cardViewModel.cardData
+        cardAdapter.cardList = cardLists
+
 
         with(binding.recyclerview){
             adapter = cardAdapter   // 리사이클러뷰와 어뎁터 연결
@@ -47,17 +61,25 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun adapterClick(card : CardData){
-        // MainActivity로 이동
-        val intent = Intent(this@MainActivity, DetailActivity::class.java)
 
-        // bundle로 데이터 전달
-        val bundle = Bundle()
-        // 지정해둔 키값을 사용해서 넘기기
-        bundle.putParcelable(DetailActivity.EXTRA_CARD, card)
-        intent.putExtras(bundle)
-        Log.d(TAG, bundle.toString())
+        // 1) 그냥 intent사용해서 이동
+//        val intent = Intent(this@MainActivity, DetailActivity::class.java)
+//        // bundle로 데이터 전달
+//        val bundle = Bundle()
+//        // 지정해둔 키값을 사용해서 넘기기
+//        bundle.putParcelable(DetailActivity.EXTRA_CARD, card)
+//        intent.putExtras(bundle)
+//        Log.d(TAG, bundle.toString())
+//
+//        startActivity(intent)
 
-        startActivity(intent)
+
+        // 2) Intent부분을 확장함수로 빼서 DetailActivity로 이동하도록 구현
+        launchActivity<DetailActivity>(
+            DetailActivity.EXTRA_CARD to card
+        )
+
+
     }
 
 }
