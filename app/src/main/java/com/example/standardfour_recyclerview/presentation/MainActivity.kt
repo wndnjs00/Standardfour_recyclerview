@@ -18,7 +18,6 @@ import java.text.DecimalFormat
 import java.util.zip.DataFormatException
 
 class MainActivity : AppCompatActivity() {
-    private val TAG = MainActivity::class.java.simpleName
 
     private val binding : ActivityMainBinding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
@@ -42,17 +41,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-//        val dataSource = DataSource.getDataSoures().getCardList()
-//        cardAdapter.cardList = dataSource as ArrayList<CardData>
 
         // DataSource를 통해 가져왔던부분을 ViewModel을 사용해서 받아와줌
-        val cardLists = cardViewModel.cardData
-        cardAdapter.cardList = cardLists
+        val cardLists = cardViewModel.cardData      // val dataSource = DataSource.getDataSoures().getCardList()
+        cardAdapter.cardList = cardLists                          // cardAdapter.cardList = dataSource
 
 
         with(binding.recyclerview){
             adapter = cardAdapter   // 리사이클러뷰와 어뎁터 연결
-            layoutManager = LinearLayoutManager(this@MainActivity)  // LinearLayoutManager지정
+            layoutManager = LinearLayoutManager(this@MainActivity)
         }
 
         binding.priceTv.text = "$ ${DecimalFormat("#,##0.00").format(285856.20)}"

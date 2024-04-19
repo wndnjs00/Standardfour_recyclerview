@@ -23,8 +23,8 @@ class DetailActivity : AppCompatActivity() {
         const val EXTRA_CARD : String = "extra_card"
     }
 
-    // 확장함수로 데이터받아오는거 구현한 함수 가져오기
-    private val card by extraNotNull<CardData>(EXTRA_CARD)
+    // 확장함수로 데이터 받아오는부분 구현한 함수 가져오기
+//    private val card by extraNotNull<CardData>(EXTRA_CARD)
 
 
     // ViewModel 선언
@@ -61,7 +61,7 @@ class DetailActivity : AppCompatActivity() {
 
 
         // 3) viewModel 사용
-        val cardItem = intent?.getParcelableExtra<CardData>(EXTRA_CARD)
+        val cardItem = intent?.getParcelableExtra<CardData>(EXTRA_CARD)     //데이터 받아오기
         val cardData = cardItem?.let { cardViewModel.getCardModel(it) }
 
         with(binding) {
