@@ -7,7 +7,7 @@ import com.example.standardfour_recyclerview.data.DataSource
 
 class CardViewModel(dataSource: DataSource) : ViewModel() {
 
-    // data list observing을 사용하는 방법 (LiveData 사용안하고)
+    // data list observing을 사용하는 방법! (LiveData 사용안하고)
     val cardData = dataSource.getCardList()
 
     fun getCardModel(cardData: CardData) : CardData{
