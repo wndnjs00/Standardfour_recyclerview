@@ -94,7 +94,7 @@ class CardViewAdpater(var cardList : List<CardData>, private val onClick : (Card
     }
 
 
-    inner class CardViewHolder1(private val binding : RecyclerviewItem1Binding) : RecyclerView.ViewHolder(binding.root){
+    class CardViewHolder1(private val binding : RecyclerviewItem1Binding) : RecyclerView.ViewHolder(binding.root){
 
         fun bind1(card : CardData){
             with(binding){
@@ -108,7 +108,7 @@ class CardViewAdpater(var cardList : List<CardData>, private val onClick : (Card
     }
 
 
-    inner class CardViewHolder2(private val binding : RecyclerviewItem2Binding) : RecyclerView.ViewHolder(binding.root){
+    class CardViewHolder2(private val binding : RecyclerviewItem2Binding) : RecyclerView.ViewHolder(binding.root){
 
         fun bind2(card : CardData){
             with(binding){
@@ -122,7 +122,7 @@ class CardViewAdpater(var cardList : List<CardData>, private val onClick : (Card
     }
 
 
-    inner class CardViewHolder3(private val binding : RecyclerviewItem3Binding) : RecyclerView.ViewHolder(binding.root){
+    class CardViewHolder3(private val binding : RecyclerviewItem3Binding) : RecyclerView.ViewHolder(binding.root){
 
         fun bind3(card : CardData){
             with(binding){
