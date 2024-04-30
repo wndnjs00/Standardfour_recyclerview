@@ -12,4 +12,3 @@
 
 ---
 #### MVVM 패턴으로 수정
-- Observer Pattern 사용
