@@ -4,7 +4,8 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import androidx.core.os.bundleOf
-import com.example.standardfour_recyclerview.data.CardData
+import com.example.standardfour_recyclerview.data.entity.CardEntity
+import com.example.standardfour_recyclerview.presentation.model.CardModel
 
 
 // Intent부분 확장함수로 뽑기
@@ -30,7 +31,7 @@ inline fun <reified T : Any> Context.launchActivity(
 inline fun <reified T : Any> Activity.extraNotNull(key : String, default : T ?= null) = lazy {
 
     // intent?.getParcelableExtra<CardData>(EXTRA_CARD)  이코드에 해당하는 부분
-    val value = intent?.getParcelableExtra<CardData>(key)
+    val value = intent?.getParcelableExtra<CardModel>(key)
 
     // requireNotNull는 null이 아님을 보장하는 함수
     // value가 제네릭타입이 T이면 value리턴, 아니면 default리턴

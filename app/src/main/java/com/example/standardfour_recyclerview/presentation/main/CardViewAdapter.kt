@@ -1,36 +1,43 @@
-package com.example.standardfour_recyclerview.presentation
+package com.example.standardfour_recyclerview.presentation.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.standardfour_recyclerview.data.CardData
 import com.example.standardfour_recyclerview.databinding.RecyclerviewItem1Binding
 import com.example.standardfour_recyclerview.databinding.RecyclerviewItem2Binding
 import com.example.standardfour_recyclerview.databinding.RecyclerviewItem3Binding
+import com.example.standardfour_recyclerview.databinding.UnknonItemBinding
 import com.example.standardfour_recyclerview.presentation.enums.MultiViewEnum
+import com.example.standardfour_recyclerview.presentation.model.CardModel
 import java.text.DecimalFormat
 
-class CardViewAdpater(var cardList : List<CardData>, private val onClick : (CardData) -> Unit) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-
+class CardViewAdapter(var cardList : List<CardModel>, private val onClick : (CardModel) -> Unit) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     // 레이아웃 연결
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        return when(viewType){
 
-            MultiViewEnum.MULTI_VIEWTYPE1.viewType -> {
+        // MultiViewEnum.BlUE.viewType 이런식으로 안쓰고 바로 MultiViewEnum.BlUE 이렇게 쓸수있게 하는 방법
+        // entries를 쓰면 MultiViewEnum에 있는 값들이 리스트형식으로 쭉나옴
+        val multiViewType = MultiViewEnum.entries.find { it.viewType == viewType}
+
+        return when(multiViewType){
+            MultiViewEnum.BlUE -> {
                 val binding = RecyclerviewItem1Binding.inflate(inflater, parent, false)
-                CardViewHolder1(binding)
+                BlueTypeViewHolder(binding)
             }
-            MultiViewEnum.MULTI_VIEWTYPE2.viewType -> {
+            MultiViewEnum.LIGHTBLUE -> {
                 val binding = RecyclerviewItem2Binding.inflate(inflater, parent, false)
-                CardViewHolder2(binding)
+                LightBlueTypeViewHolder(binding)
             }
-            MultiViewEnum.MULTI_VIEWTYPE3.viewType -> {
+            MultiViewEnum.ORANGE -> {
                 val binding = RecyclerviewItem3Binding.inflate(inflater, parent, false)
-                CardViewHolder3(binding)
+                OrangeTypeViewHolder(binding)
             }
-            else -> throw IllegalAccessException("Invalid view type")
+            else -> {
+                val binding = UnknonItemBinding.inflate(inflater, parent, false)
+                UnknownViewHolder(binding)
+            }
         }
     }
 
@@ -43,12 +50,7 @@ class CardViewAdpater(var cardList : List<CardData>, private val onClick : (Card
     // 멀티뷰타입은 getItemViewType을 오버라이딩 해줘야함
     // postion에 따라 어떤 뷰타입을 가져야되는지 연결해줘야함
     override fun getItemViewType(position: Int): Int {
-        return when(position){
-            0 -> MultiViewEnum.MULTI_VIEWTYPE1.viewType
-            1 -> MultiViewEnum.MULTI_VIEWTYPE2.viewType
-            2 -> MultiViewEnum.MULTI_VIEWTYPE3.viewType
-            else -> throw IllegalAccessException("Invalid view type")
-        }
+        return cardList[position].type.viewType
     }
 
 
@@ -58,9 +60,9 @@ class CardViewAdpater(var cardList : List<CardData>, private val onClick : (Card
 
         when(holder.itemViewType){
 
-            MultiViewEnum.MULTI_VIEWTYPE1.viewType -> {
-                val blueHolder = holder as CardViewHolder1
-                blueHolder.bind1(cardlist)
+            MultiViewEnum.BlUE.viewType -> {
+                val blueHolder = holder as BlueTypeViewHolder
+                blueHolder.bind(cardlist)
 
                 // MULTI_VIEWTYPE1 클릭 이벤트 처리 (멀티뷰타입마다 데이터가 완전 다른 경우도 있기 때뮨에 그런경우에는 이렇게 클릭이벤트를 주는게 유용함)
                 holder.itemView.setOnClickListener {
@@ -68,9 +70,9 @@ class CardViewAdpater(var cardList : List<CardData>, private val onClick : (Card
                 }
             }
 
-            MultiViewEnum.MULTI_VIEWTYPE2.viewType -> {
-                val lightBlueHolder = holder as CardViewHolder2
-                lightBlueHolder.bind2(cardlist)
+            MultiViewEnum.LIGHTBLUE.viewType -> {
+                val lightBlueHolder = holder as LightBlueTypeViewHolder
+                lightBlueHolder.bind(cardlist)
 
                 // MULTI_VIEWTYPE2 클릭 이벤트 처리
                 holder.itemView.setOnClickListener {
@@ -78,9 +80,9 @@ class CardViewAdpater(var cardList : List<CardData>, private val onClick : (Card
                 }
             }
 
-            MultiViewEnum.MULTI_VIEWTYPE3.viewType -> {
-                val orangeHolder = holder as CardViewHolder3
-                orangeHolder.bind3(cardlist)
+            MultiViewEnum.ORANGE.viewType -> {
+                val orangeHolder = holder as OrangeTypeViewHolder
+                orangeHolder.bind(cardlist)
 
                 // MULTI_VIEWTYPE3 클릭 이벤트 처리
                 holder.itemView.setOnClickListener {
@@ -94,9 +96,9 @@ class CardViewAdpater(var cardList : List<CardData>, private val onClick : (Card
     }
 
 
-    class CardViewHolder1(private val binding : RecyclerviewItem1Binding) : RecyclerView.ViewHolder(binding.root){
+    class BlueTypeViewHolder(private val binding : RecyclerviewItem1Binding) : RecyclerView.ViewHolder(binding.root){
 
-        fun bind1(card : CardData){
+        fun bind(card: CardModel){
             with(binding){
                 AndersonTv.text = card.name
                 debitCardTv.text = card.cardName
@@ -108,9 +110,9 @@ class CardViewAdpater(var cardList : List<CardData>, private val onClick : (Card
     }
 
 
-    class CardViewHolder2(private val binding : RecyclerviewItem2Binding) : RecyclerView.ViewHolder(binding.root){
+    class LightBlueTypeViewHolder(private val binding : RecyclerviewItem2Binding) : RecyclerView.ViewHolder(binding.root){
 
-        fun bind2(card : CardData){
+        fun bind(card: CardModel){
             with(binding){
                 AndersonTv2.text = card.name
                 debitCardTv2.text = card.cardName
@@ -122,17 +124,24 @@ class CardViewAdpater(var cardList : List<CardData>, private val onClick : (Card
     }
 
 
-    class CardViewHolder3(private val binding : RecyclerviewItem3Binding) : RecyclerView.ViewHolder(binding.root){
+    class OrangeTypeViewHolder(private val binding : RecyclerviewItem3Binding) : RecyclerView.ViewHolder(binding.root){
 
-        fun bind3(card : CardData){
+        fun bind(card : CardModel){
             with(binding){
                 AndersonTv3.text = card.name
                 debitCardTv3.text = card.cardName
                 cardNumberTv3.text = card.number
                 cardDateTv3.text = card.date
-                cardPriceTv3.text = "$" + DecimalFormat("#,##0.00").format(card.price).toString()   // 확장함숧 뽑아보기
+                cardPriceTv3.text = "$" + DecimalFormat("#,##0.00").format(card.price).toString()
             }
         }
+    }
+
+
+    // 예외처리시, 보여줄 아이템뷰홀더
+    class UnknownViewHolder(binding : UnknonItemBinding) : RecyclerView.ViewHolder(binding.root){
+        // 아무것도 안보내니깐 일단 Unit으로 설정해둠
+        fun bind() = Unit
     }
 
 }
