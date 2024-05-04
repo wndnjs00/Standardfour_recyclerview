@@ -37,10 +37,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-
-        dataFormat()
         initViewModel()
         initData()
+        dataFormat()
 
     }
 
@@ -60,7 +59,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initViewModel(){
-        // viewModel가져옴 (data update 처리)
+        // LiveData 객체 observe (Activtiy나 Fragment에서 수행)
+        // viewModel가져옴 (LiveData의 observe를 통해 data 바로 update 처리)
         cardViewModel.getBlueCardModel.observe(this@MainActivity){
             cardLists = it
 

@@ -11,7 +11,7 @@ import com.example.standardfour_recyclerview.presentation.model.CardModel
 class SearchRepositoryImpl(private val dataSource : DataSource) : SearchRepository {
     override fun getCardList(): List<CardModel> {
 
-        //타입을 바꿔줘야함 (mapping시켜주기) - CardModelMapper에서
+        // CardModel로 타입을 바꿔줘야함 (mapping시켜주기) - CardModelMapper에서
         return dataSource.getCardList().asCardModel()
     }
 }

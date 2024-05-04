@@ -18,6 +18,7 @@ class CardViewModel(private val searchRepository : SearchRepository) : ViewModel
     private val _getBlueCardModel : MutableLiveData<List<CardModel>> = MutableLiveData()
 
     // Activity에서 가져울 수 있도록 따로 변수지정
+    // LiveData 객체 생성
     //_getBlueCardModel의 public getter()이며 외부에서 liveData를 읽을 수 있는 접근자
     val getBlueCardModel : LiveData<List<CardModel>> get() = _getBlueCardModel
 
