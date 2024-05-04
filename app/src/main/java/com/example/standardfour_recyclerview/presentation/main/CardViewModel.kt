@@ -26,7 +26,6 @@ class CardViewModel(private val searchRepository : SearchRepository) : ViewModel
     fun getBlueCardModel() {
         _getBlueCardModel.value = searchRepository.getCardList()
     }
-
 }
 
 
