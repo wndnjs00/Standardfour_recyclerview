@@ -1,10 +1,10 @@
 package com.example.standardfour_recyclerview.data.database
 
-import com.example.standardfour_recyclerview.data.entity.CardEntity
-import com.example.standardfour_recyclerview.presentation.enums.MultiViewEnum
+import com.example.standardfour_recyclerview.presentation.main.MultiViewEnum
 
-//network or cache data로 변경될 예정
-//DTO(서버로 부터 오는 json) or DAO(database)
+// network or cache data로 변경될 예정
+// DTO(서버로 부터 오는 json) or DAO(database)
+// Room으로 바꿀 예정 (시간 되면)
 fun CardDataList() : ArrayList<CardEntity>{
 
     return arrayListOf(

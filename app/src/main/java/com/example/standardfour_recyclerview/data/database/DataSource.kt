@@ -1,7 +1,5 @@
 package com.example.standardfour_recyclerview.data.database
 
-import com.example.standardfour_recyclerview.data.entity.CardEntity
-
 
 // 싱글톤
 object DataSource {

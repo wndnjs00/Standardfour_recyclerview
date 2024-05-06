@@ -1,9 +1,10 @@
 package com.example.standardfour_recyclerview.presentation.model
 
 import android.os.Parcelable
-import com.example.standardfour_recyclerview.presentation.enums.MultiViewEnum
+import com.example.standardfour_recyclerview.presentation.main.MultiViewEnum
 import kotlinx.parcelize.Parcelize
 
+//bundle로 보내기 위하여 parcelize 추가
 @Parcelize
 data class CardModel(
     val id : Int,

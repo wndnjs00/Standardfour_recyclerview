@@ -1,4 +1,4 @@
-package com.example.standardfour_recyclerview.presentation.enums
+package com.example.standardfour_recyclerview.presentation.main
 
 
 // enum class로 열거형 클래스로 만들기 (코드 단순, 가독성 up)

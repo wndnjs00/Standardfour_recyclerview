@@ -1,13 +1,9 @@
 package com.example.standardfour_recyclerview.presentation.detail
 
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.example.standardfour_recyclerview.data.entity.CardEntity
 import com.example.standardfour_recyclerview.databinding.ActivityDetailBinding
 import com.example.standardfour_recyclerview.extension.extraNotNull
-import com.example.standardfour_recyclerview.presentation.main.CardViewModel
-import com.example.standardfour_recyclerview.presentation.main.CardViewModelFactory
 import com.example.standardfour_recyclerview.presentation.model.CardModel
 import java.text.DecimalFormat
 

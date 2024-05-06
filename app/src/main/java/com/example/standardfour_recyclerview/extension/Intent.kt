@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import androidx.core.os.bundleOf
-import com.example.standardfour_recyclerview.data.entity.CardEntity
 import com.example.standardfour_recyclerview.presentation.model.CardModel
 
 

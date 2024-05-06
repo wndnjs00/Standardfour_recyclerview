@@ -1,8 +1,6 @@
-package com.example.standardfour_recyclerview.data.entity
+package com.example.standardfour_recyclerview.data.database
 
-import android.os.Parcelable
-import com.example.standardfour_recyclerview.presentation.enums.MultiViewEnum
-import kotlinx.parcelize.Parcelize
+import com.example.standardfour_recyclerview.presentation.main.MultiViewEnum
 
 data class CardEntity(
     val id : Int,

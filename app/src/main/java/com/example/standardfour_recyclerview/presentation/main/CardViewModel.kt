@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.CreationExtras
 import com.example.standardfour_recyclerview.data.repository.SearchRepositoryImpl
 import com.example.standardfour_recyclerview.data.database.DataSource
+import com.example.standardfour_recyclerview.network.RetrofitClient
 import com.example.standardfour_recyclerview.presentation.repository.SearchRepository
 import com.example.standardfour_recyclerview.presentation.model.CardModel
 
@@ -31,10 +32,12 @@ class CardViewModel(private val searchRepository : SearchRepository) : ViewModel
 
 class CardViewModelFactory : ViewModelProvider.Factory{
 
-    // 어떤 타입의 뷰모델이 와도 가능하게끔 (데이터타입도 어떤 데이터타입이든지 가능하도록)
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+    private val repository = SearchRepositoryImpl(DataSource, RetrofitClient.searchGitHubUser)
 
-        return CardViewModel(SearchRepositoryImpl(DataSource)) as T
+    // 어떤 타입의 뷰모델이 와도 가능하게끔 (데이터타입도 어떤 데이터타입이든지 가능하도록)
+    override fun <T : ViewModel> create(modelClass: Class<T>, extras: CreationExtras): T {
+
+        return CardViewModel(repository) as T
 
     }
 }

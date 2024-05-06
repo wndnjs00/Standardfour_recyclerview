@@ -1,6 +1,6 @@
 package com.example.standardfour_recyclerview.presentation.mapper
 
-import com.example.standardfour_recyclerview.data.entity.CardEntity
+import com.example.standardfour_recyclerview.data.database.CardEntity
 import com.example.standardfour_recyclerview.presentation.model.CardModel
 
 
