@@ -1,24 +1,17 @@
 package com.example.standardfour_recyclerview.data.repository
 
-import com.example.standardfour_recyclerview.data.database.DataSource
 import com.example.standardfour_recyclerview.data.remote.SearchRemoteDataSource
 import com.example.standardfour_recyclerview.presentation.repository.SearchRepository
-import com.example.standardfour_recyclerview.presentation.mapper.asCardModel
 import com.example.standardfour_recyclerview.presentation.search.mapper.toEntity
-import com.example.standardfour_recyclerview.presentation.model.CardModel
 
-//interface인 repository를 구현함으로써 dataSource의 data를 가져옴
-//repository -> dataSource의 의존성 회피
-//의존을 없애면 datasource변경(network->database)시 repository에 영향 x
+// 레포지토리 구현부 (override해서 데이터구현부 실제구현)
+// SearchRepository 상속받음
 
-// private val remoteDataSource : SearchRemoteDataSource 추가
-class SearchRepositoryImpl(private val dataSource : DataSource, private val remoteDataSource : SearchRemoteDataSource) : SearchRepository {
-    override fun getCardList(): List<CardModel> {
+// 보통 데이터를 local, remote 영역으로 나눠서써줌 (지금예제에선 local - dataSource, remote - remoteDataSource에 해당)
+class SearchRepositoryImpl(private val remoteDataSource : SearchRemoteDataSource) : SearchRepository {
 
-        // CardModel로 타입을 바꿔줘야함 (mapping시켜주기) - CardModelMapper에서
-        return dataSource.getCardList().asCardModel()
-    }
 
+    // SearchRepository에서 구현한 getGitHubUserList함수를 오버라이딩
     override suspend fun getGitHubUserList(userName: String) =
         remoteDataSource.getGitHubUser(userName).toEntity()
 }

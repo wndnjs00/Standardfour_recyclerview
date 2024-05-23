@@ -6,13 +6,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.CreationExtras
-import com.example.standardfour_recyclerview.data.database.DataSource
 import com.example.standardfour_recyclerview.data.repository.SearchRepositoryImpl
 import com.example.standardfour_recyclerview.network.RetrofitClient
 import com.example.standardfour_recyclerview.presentation.repository.SearchRepository
 import com.example.standardfour_recyclerview.presentation.search.model.GitHubUserEntity
 import kotlinx.coroutines.launch
 
+
+// ViewModel에서는 직접적으로 데이터에 접근하지 않고, Repository를 통해서 데이터접근해서 데이터호출 (private val searchRepository: SearchRepository)
 class SearchViewModel(private val searchRepository: SearchRepository) : ViewModel(){
     // LiveData 사용
     private val _getGitHubUserList : MutableLiveData<List<GitHubUserEntity>> = MutableLiveData()
@@ -60,7 +61,7 @@ class SearchViewModel(private val searchRepository: SearchRepository) : ViewMode
 }
 
 class SearchViewModelFactory : ViewModelProvider.Factory{
-    private val repository = SearchRepositoryImpl(DataSource, RetrofitClient.searchGitHubUser)
+    private val repository = SearchRepositoryImpl(RetrofitClient.searchGitHubUser)
 
     override fun <T : ViewModel> create(
         modelClass: Class<T>,
