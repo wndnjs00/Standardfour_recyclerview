@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.standardfour_recyclerview.databinding.ActivityMainBinding
 import com.example.standardfour_recyclerview.extension.launchActivity
-import com.example.standardfour_recyclerview.presentation.detail.DetailActivity
 import com.example.standardfour_recyclerview.presentation.model.CardModel
 import java.text.DecimalFormat
 
@@ -16,18 +15,18 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
-    // onClick메소드가 실행되면 람다식이 바로 실행되도록
-    private val cardAdapter : CardViewAdapter by lazy {
-        CardViewAdapter(cardList = ArrayList<CardModel>()) { card ->
-            // DetailActivity로 이동하는 함수 실행
-            adapterClick(card)
-        }
-    }
+//    // onClick메소드가 실행되면 람다식이 바로 실행되도록
+//    private val cardAdapter : CardViewAdapter by lazy {
+//        CardViewAdapter(cardList = ArrayList<CardModel>()) { card ->
+//            // DetailActivity로 이동하는 함수 실행
+//            adapterClick(card)
+//        }
+//    }
 
-    // ViewModel 선언
-    private val cardViewModel by viewModels<CardViewModel>{
-        CardViewModelFactory()
-    }
+//    // ViewModel 선언
+//    private val cardViewModel by viewModels<CardViewModel>{
+//        CardViewModelFactory()
+//    }
 
     private lateinit var cardLists : List<CardModel>
 
@@ -37,43 +36,43 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        initViewModel()
-        initData()
-        dataFormat()
+//        initViewModel()
+//        initData()
+//        dataFormat()
 
     }
 
 
-    // viewModel가져옴
-    private fun initData(){
-        cardViewModel.getBlueCardModel()
+//    // viewModel가져옴
+//    private fun initData(){
+//        cardViewModel.getBlueCardModel()
+//    }
+
+
+//    private fun initView(){
+//        cardAdapter.cardList = cardLists
+//        with(binding.recyclerview){
+//            adapter = cardAdapter   // 리사이클러뷰와 어뎁터 연결
+//            layoutManager = LinearLayoutManager(this@MainActivity)
+//        }
+//    }
+
+//    private fun initViewModel(){
+//        // LiveData 객체 observe (Activtiy나 Fragment에서 수행)
+//        // viewModel가져옴 (LiveData의 observe를 통해 data 바로 update 처리)
+//        cardViewModel.getBlueCardModel.observe(this@MainActivity){
+//            cardLists = it
+//
+//            initView()
+//        }
     }
 
-
-    private fun initView(){
-        cardAdapter.cardList = cardLists
-        with(binding.recyclerview){
-            adapter = cardAdapter   // 리사이클러뷰와 어뎁터 연결
-            layoutManager = LinearLayoutManager(this@MainActivity)
-        }
-    }
-
-    private fun initViewModel(){
-        // LiveData 객체 observe (Activtiy나 Fragment에서 수행)
-        // viewModel가져옴 (LiveData의 observe를 통해 data 바로 update 처리)
-        cardViewModel.getBlueCardModel.observe(this@MainActivity){
-            cardLists = it
-
-            initView()
-        }
-    }
-
-    private fun dataFormat(){
-        binding.priceTv.text = "$ ${DecimalFormat("#,##0.00").format(285856.20)}"
-    }
+//    private fun dataFormat(){
+//        binding.priceTv.text = "$ ${DecimalFormat("#,##0.00").format(285856.20)}"
+//    }
 
 
-    private fun adapterClick(card : CardModel){
+//    private fun adapterClick(card : CardModel){
 
         // 1) 그냥 intent사용해서 이동
 //        val intent = Intent(this@MainActivity, DetailActivity::class.java)
@@ -87,12 +86,11 @@ class MainActivity : AppCompatActivity() {
 //        startActivity(intent)
 
 
-        // 2) Intent부분을 확장함수로 빼서 DetailActivity로 이동하도록 구현
-        launchActivity<DetailActivity>(
-            DetailActivity.EXTRA_CARD to card
-        )
-
-
-    }
-
-}
+//        // 2) Intent부분을 확장함수로 빼서 DetailActivity로 이동하도록 구현
+//        launchActivity<DetailActivity>(
+//            DetailActivity.EXTRA_CARD to card
+//        )
+//
+//
+//    }
+//}

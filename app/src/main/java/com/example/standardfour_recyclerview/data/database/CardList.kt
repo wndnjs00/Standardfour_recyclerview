@@ -5,10 +5,10 @@ import com.example.standardfour_recyclerview.presentation.main.MultiViewEnum
 // network or cache data로 변경될 예정
 // DTO(서버로 부터 오는 json) or DAO(database)
 // Room으로 바꿀 예정 (시간 되면)
-fun CardDataList() : ArrayList<CardEntity>{
+fun CardDataList() : ArrayList<BlueCardEntity>{
 
     return arrayListOf(
-        CardEntity(
+        BlueCardEntity(
             id = 1,
             name = "Juwon",
             cardName = "A Debit Card",
@@ -17,7 +17,7 @@ fun CardDataList() : ArrayList<CardEntity>{
             price = 3100.30,
             MultiViewEnum.BlUE
         ),
-        CardEntity(
+        BlueCardEntity(
             id = 2,
             name = "Minju",
             cardName = "A Hybrid Card",
@@ -26,7 +26,7 @@ fun CardDataList() : ArrayList<CardEntity>{
             price = 4100.30,
             MultiViewEnum.LIGHTBLUE
         ),
-        CardEntity(
+        BlueCardEntity(
             id = 3,
             name = "Hemin",
             cardName = "A Hi Card",
@@ -35,7 +35,7 @@ fun CardDataList() : ArrayList<CardEntity>{
             price = 4170.30,
             MultiViewEnum.ORANGE
         ),
-        CardEntity(
+        BlueCardEntity(
             id = 4,
             name = "Anderson",
             cardName = "A Debit Card",
@@ -44,7 +44,7 @@ fun CardDataList() : ArrayList<CardEntity>{
             price = 3100.30,
             MultiViewEnum.BlUE
         ),
-        CardEntity(
+        BlueCardEntity(
             id = 5,
             name = "Jimmy",
             cardName = "A Hybrid Card",
@@ -53,7 +53,7 @@ fun CardDataList() : ArrayList<CardEntity>{
             price = 4100.30,
             MultiViewEnum.LIGHTBLUE
         ),
-        CardEntity(
+        BlueCardEntity(
             id = 6,
             name = "Hanna",
             cardName = "A Hi Card",
@@ -62,7 +62,7 @@ fun CardDataList() : ArrayList<CardEntity>{
             price = 4170.30,
             MultiViewEnum.ORANGE
         ),
-        CardEntity(
+        BlueCardEntity(
             id = 7,
             name = "miju",
             cardName = "A Hybrid Card",

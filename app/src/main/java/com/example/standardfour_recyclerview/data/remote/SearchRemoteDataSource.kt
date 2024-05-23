@@ -4,7 +4,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface SearchRemoteDataSource {
-    @GET("search/code")
+    @GET("/search/users")
     suspend fun getGitHubUser(
         @Query("q") name : String,
         @Query("page") page : Int = 1,

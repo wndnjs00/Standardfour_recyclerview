@@ -4,7 +4,7 @@ import com.example.standardfour_recyclerview.data.database.DataSource
 import com.example.standardfour_recyclerview.data.remote.SearchRemoteDataSource
 import com.example.standardfour_recyclerview.presentation.repository.SearchRepository
 import com.example.standardfour_recyclerview.presentation.mapper.asCardModel
-import com.example.standardfour_recyclerview.presentation.search.toEntity
+import com.example.standardfour_recyclerview.presentation.search.mapper.toEntity
 import com.example.standardfour_recyclerview.presentation.model.CardModel
 
 //interface인 repository를 구현함으로써 dataSource의 data를 가져옴

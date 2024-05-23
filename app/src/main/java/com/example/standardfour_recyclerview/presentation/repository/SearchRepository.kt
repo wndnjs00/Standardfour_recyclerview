@@ -1,8 +1,7 @@
 package com.example.standardfour_recyclerview.presentation.repository
 
 import com.example.standardfour_recyclerview.presentation.model.CardModel
-import com.example.standardfour_recyclerview.presentation.search.GitHubUserEntity
-import com.example.standardfour_recyclerview.presentation.search.GitHubUserListEntity
+import com.example.standardfour_recyclerview.presentation.search.model.GitHubUserListEntity
 
 interface SearchRepository {
     fun getCardList() : List<CardModel>

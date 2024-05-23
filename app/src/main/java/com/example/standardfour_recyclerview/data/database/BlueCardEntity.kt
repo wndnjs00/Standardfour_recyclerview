@@ -2,7 +2,7 @@ package com.example.standardfour_recyclerview.data.database
 
 import com.example.standardfour_recyclerview.presentation.main.MultiViewEnum
 
-data class CardEntity(
+data class BlueCardEntity(
     val id : Int,
     val name : String,       //이름
     val cardName : String,   //카드이름

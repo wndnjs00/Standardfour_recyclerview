@@ -53,14 +53,21 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     // viewModel 추가!!
-    implementation("androidx.activity:activity-ktx:1.8.2")
+    implementation(libs.androidx.activity.ktx)
 
 
     // Retrofit, Gson
-    implementation ("com.squareup.retrofit2:retrofit:2.11.0")
-    implementation ("com.squareup.retrofit2:converter-gson:2.11.0") // Gson 컨버터 추가
+    implementation (libs.retrofit)
+    implementation (libs.converter.gson) // Gson 컨버터 추가
 
     // OkHttp
-    implementation ("com.squareup.okhttp3:okhttp:4.12.0")
-    implementation ("com.squareup.okhttp3:logging-interceptor:4.12.0")
+    implementation (libs.okhttp)
+    implementation (libs.logging.interceptor)
+
+    // viewModels
+    implementation (libs.androidx.activity.ktx)
+    implementation (libs.androidx.fragment.ktx)
+
+    // Glide
+    implementation (libs.glide)
 }
