@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import com.example.standardfour_recyclerview.presentation.search.main.GitHubUserSharedViewModel
+import com.example.standardfour_recyclerview.presentation.search.search.GitHubUserSharedViewModel
 import com.example.standardfour_recyclerview.databinding.FragmentGithubFavorateUsersBinding
 
 class GitHubFavorateUsersFragment : Fragment() {

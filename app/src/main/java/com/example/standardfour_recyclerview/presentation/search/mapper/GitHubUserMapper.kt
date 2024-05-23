@@ -9,7 +9,8 @@ fun GitHubUserListResponse.toEntity() = GitHubUserListEntity(
     items = items.asGitHubUserEntity()
 )
 
-// 데이터클래스 맵핑
+
+// 서버 데이터를 data class로 mapping
 fun List<GitHubUserResponse>.asGitHubUserEntity() : List<GitHubUserEntity>{
     return map {
         GitHubUserEntity(

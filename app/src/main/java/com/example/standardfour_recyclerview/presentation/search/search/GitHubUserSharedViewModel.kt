@@ -1,4 +1,4 @@
-package com.example.standardfour_recyclerview.presentation.search.main
+package com.example.standardfour_recyclerview.presentation.search.search
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

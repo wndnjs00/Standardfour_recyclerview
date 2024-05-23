@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.standardfour_recyclerview.presentation.favorite.GitHubFavorateUsersFragment
-import com.example.standardfour_recyclerview.presentation.search.main.GitHubSearchUsersFragment
+import com.example.standardfour_recyclerview.presentation.search.search.GitHubSearchUsersFragment
 import com.example.standardfour_recyclerview.R
 
 class SearchMainViewPagerAdapter(

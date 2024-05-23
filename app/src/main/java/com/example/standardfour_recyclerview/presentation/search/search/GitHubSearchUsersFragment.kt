@@ -1,4 +1,4 @@
-package com.example.standardfour_recyclerview.presentation.search.main
+package com.example.standardfour_recyclerview.presentation.search.search
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

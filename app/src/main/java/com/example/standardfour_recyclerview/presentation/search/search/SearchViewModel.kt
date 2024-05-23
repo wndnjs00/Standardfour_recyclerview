@@ -1,4 +1,4 @@
-package com.example.standardfour_recyclerview.presentation.search.main
+package com.example.standardfour_recyclerview.presentation.search.search
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,7 +8,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.CreationExtras
 import com.example.standardfour_recyclerview.data.repository.SearchRepositoryImpl
 import com.example.standardfour_recyclerview.network.RetrofitClient
-import com.example.standardfour_recyclerview.presentation.repository.SearchRepository
+import com.example.standardfour_recyclerview.data.repository.SearchRepository
 import com.example.standardfour_recyclerview.presentation.search.model.GitHubUserEntity
 import kotlinx.coroutines.launch
 
