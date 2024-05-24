@@ -28,11 +28,12 @@ class GitHubUserAdapter(private val onClick : (GitHubUserEntity) -> Unit) :  Rec
 
     override fun getItemCount(): Int = gitHubUserList.size
 
+
     class GitHubUserViewHolder(private val binding: ItemGithubUserBinding, private val onClick: (GitHubUserEntity) -> Unit) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(gitHubUser : GitHubUserEntity) = with(binding){
 
-            // 토글버튼 체크됐을때
+            // 토글버튼 체크됐을때, isFavorite값 true
             switchFavorite.isChecked = gitHubUser.isFavorite
 
             tvUserName.text = gitHubUser.loginName

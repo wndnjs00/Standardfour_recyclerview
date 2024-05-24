@@ -49,8 +49,10 @@ class GitHubFavorateUsersFragment : Fragment() {
         // 좋아요값이 true인값들을 observe해서 좋아요값이 변경되면
         sharedViewModel.favoriteLiveData.observe(viewLifecycleOwner){
 
-            // 리사이클러뷰 업데이트
+            // 넘어온 값을 넣어서, 어뎁터 업데이트
+            // 좋아요된값 변경될때마다 그 변경된 데이터 가져와서, 어뎁터 업데이트
             favoriteListAdapter.gitHubUserList = it
+
             // 어뎁터와 리사이클러뷰 연결
             binding.rvGithubUsers.adapter = favoriteListAdapter
         }

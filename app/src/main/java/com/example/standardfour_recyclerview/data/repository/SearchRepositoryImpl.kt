@@ -10,6 +10,6 @@ import com.example.standardfour_recyclerview.presentation.search.mapper.toEntity
 class SearchRepositoryImpl(private val remoteDataSource : SearchRemoteDataSource) : SearchRepository {
 
     // SearchRepository에서 구현한 getGitHubUserList함수를 오버라이딩
-    override suspend fun getGitHubUserList(userName: String) =
-        remoteDataSource.getGitHubUser(userName).toEntity()
+    override suspend fun getGitHubUserList(q: String) =
+        remoteDataSource.getGitHubUser(name = q).toEntity()
 }

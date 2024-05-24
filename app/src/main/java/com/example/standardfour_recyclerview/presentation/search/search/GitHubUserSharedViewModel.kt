@@ -12,19 +12,7 @@ class GitHubUserSharedViewModel : ViewModel(){
     val favoriteLiveData : LiveData<List<GitHubUserEntity>> = _favoriteLiveData
 
     fun setFavoriteList(list : List<GitHubUserEntity>){
+        // 얘는 좋아요한 데이터만 가지고있음
         _favoriteLiveData.value = list
     }
 }
-
-
-// ViewModelFactory 생성
-//class GitHubUserViewModelFactory : ViewModelProvider.Factory{
-//    private val repository = SearchRepositoryImpl(DataSource, RetrofitClient.searchGitHubUser)
-//
-//    override fun <T : ViewModel> create(
-//        modelClass: Class<T>,
-//        extras: CreationExtras
-//        ): T {
-//            return GitHubUserSharedViewModel as T
-//    }
-//}

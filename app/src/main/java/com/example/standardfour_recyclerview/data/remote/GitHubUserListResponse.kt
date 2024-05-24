@@ -2,7 +2,7 @@ package com.example.standardfour_recyclerview.data.remote
 
 import com.google.gson.annotations.SerializedName
 
-// 서버 데이터를 data class로 mapping
+
 data class GitHubUserListResponse(
     @SerializedName("items") val items : List<GitHubUserResponse>
 )

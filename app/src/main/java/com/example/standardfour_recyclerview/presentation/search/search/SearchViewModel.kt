@@ -12,20 +12,19 @@ import com.example.standardfour_recyclerview.data.repository.SearchRepository
 import com.example.standardfour_recyclerview.presentation.search.model.GitHubUserEntity
 import kotlinx.coroutines.launch
 
-
 // ViewModel에서는 직접적으로 데이터에 접근하지 않고, Repository를 통해서 데이터접근해서 데이터호출 (private val searchRepository: SearchRepository)
 class SearchViewModel(private val searchRepository: SearchRepository) : ViewModel(){
     // LiveData 사용
     private val _getGitHubUserList : MutableLiveData<List<GitHubUserEntity>> = MutableLiveData()
     val getGitHubUserList : LiveData<List<GitHubUserEntity>> get() = _getGitHubUserList
 
-    fun getGitHubUserList() = viewModelScope.launch {
+    fun getGitHubUserList(query : String) = viewModelScope.launch {
         // "cindy" 검색값 붙잡고있음
-        _getGitHubUserList.value = searchRepository.getGitHubUserList("cindy").items
+        _getGitHubUserList.value = searchRepository.getGitHubUserList(q = query).items
     }
 
 
-    // sharedViewModel에 뿌려줄 라이브데이터 세팅
+    // 좋아요 상태값 관찰할 라이브데이터 세팅
     private val _favoriteUserList : MutableLiveData<List<GitHubUserEntity>> = MutableLiveData()
     val favoriteUserList : LiveData<List<GitHubUserEntity>> get() = _favoriteUserList
 

@@ -33,6 +33,7 @@ class GitHubSearchUsersFragment : Fragment() {
 
     private val gitHubUserAdapter : GitHubUserAdapter by lazy {
         GitHubUserAdapter{
+            // 어뎁터 클릭시
             // 토글버튼 클릭시, viewModel을 통해 좋아요 클릭한 아이템 가져옴
             searchViewModel.setFavoriteItem(it)
         }
@@ -57,18 +58,19 @@ class GitHubSearchUsersFragment : Fragment() {
 
     private fun initView() = with(binding){
         btnSearch.setOnClickListener {
-            // sindy값 받아서 보여줌
-            searchViewModel.getGitHubUserList()
+            // 내가 입력한 값받아서 보여줌
+            val editText = binding.etSearch.text.toString()
+            searchViewModel.getGitHubUserList(query = editText)
         }
     }
 
 
     private fun initViewModel(){
 
-        // 검색버튼이 호출되었을때(검색에에 cindy가 호출돠었을때)
+        // 검색버튼이 호출되었을때(검색에 cindy가 호출돠었을때)
         searchViewModel.getGitHubUserList.observe(viewLifecycleOwner){
 
-            // 어뎁터 업데이트
+            // 넘어온 값을 넣어서 어뎁터 업데이트
             gitHubUserAdapter.gitHubUserList = it
 
             // 리사이클러뷰와 어뎁터 연결
@@ -78,9 +80,10 @@ class GitHubSearchUsersFragment : Fragment() {
         }
 
 
-        // 좋아요 상태값 observe해서, 좋아요 상태값이 바뀌면 어뎁터 업데이트
+        // 좋아요 상태값 observe해서, 좋아요가 ture인 값들만 observe
         searchViewModel.favoriteUserList.observe(viewLifecycleOwner){
-            // 좋아요 값이 true인 값들만 observe
+
+            // sharedViewModel.setFavoriteList에 그 넘어온값(좋아요가 ture)인값을 넣어줌
             sharedViewModel.setFavoriteList(it)
         }
     }
