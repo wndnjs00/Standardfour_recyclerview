@@ -6,11 +6,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.standardfour_recyclerview.R
 import com.example.standardfour_recyclerview.databinding.ItemGithubUserBinding
-import com.example.standardfour_recyclerview.presentation.search.model.GitHubUserEntity
+import com.example.standardfour_recyclerview.presentation.search.model.GitHubUser
 
-class GitHubUserAdapter(private val onClick : (GitHubUserEntity) -> Unit) :  RecyclerView.Adapter<GitHubUserAdapter.GitHubUserViewHolder>(){
+class GitHubUserAdapter(private val onClick : (GitHubUser) -> Unit) :  RecyclerView.Adapter<GitHubUserAdapter.GitHubUserViewHolder>(){
 
-    var gitHubUserList = listOf<GitHubUserEntity>()
+    var gitHubUserList = listOf<GitHubUser>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GitHubUserViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_github_user,parent, false)
         return GitHubUserViewHolder(ItemGithubUserBinding.bind(view), onClick)
@@ -29,9 +29,9 @@ class GitHubUserAdapter(private val onClick : (GitHubUserEntity) -> Unit) :  Rec
     override fun getItemCount(): Int = gitHubUserList.size
 
 
-    class GitHubUserViewHolder(private val binding: ItemGithubUserBinding, private val onClick: (GitHubUserEntity) -> Unit) : RecyclerView.ViewHolder(binding.root) {
+    class GitHubUserViewHolder(private val binding: ItemGithubUserBinding, private val onClick: (GitHubUser) -> Unit) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(gitHubUser : GitHubUserEntity) = with(binding){
+        fun bind(gitHubUser : GitHubUser) = with(binding){
 
             // 토글버튼 체크됐을때, isFavorite값 true
             switchFavorite.isChecked = gitHubUser.isFavorite
