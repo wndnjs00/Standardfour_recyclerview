@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.ksp)     //hilt
+    alias(libs.plugins.hilt)    //hilt
     id ("kotlin-parcelize")
 }
 
@@ -70,4 +72,13 @@ dependencies {
 
     // Glide
     implementation (libs.glide)
+
+    //hilt
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.android.compiler)
+
+    //Room
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    ksp(libs.room.compiler)
 }

@@ -4,7 +4,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.standardfour_recyclerview.databinding.ActivitySearchMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SearchMainActivity : AppCompatActivity() {
     private val binding: ActivitySearchMainBinding by lazy {
         ActivitySearchMainBinding.inflate(layoutInflater)

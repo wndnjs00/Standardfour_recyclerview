@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.example.standardfour_recyclerview.presentation.search.search.GitHubUserSharedViewModel
 import com.example.standardfour_recyclerview.databinding.FragmentGithubFavorateUsersBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class GitHubFavorateUsersFragment : Fragment() {
 
     // 다른 엑티비티에서도 GitHubFavorateUsersFragment호출할 수 있도록 newInstance()생성

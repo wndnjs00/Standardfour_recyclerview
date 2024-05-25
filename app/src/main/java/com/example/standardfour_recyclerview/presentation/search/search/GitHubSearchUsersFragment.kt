@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.example.standardfour_recyclerview.databinding.FragmentGithubSearchUsersBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class GitHubSearchUsersFragment : Fragment() {
 
     private var _binding: FragmentGithubSearchUsersBinding? = null
@@ -21,9 +23,8 @@ class GitHubSearchUsersFragment : Fragment() {
     }
 
     // searchViewModel 선언
-    private val searchViewModel: SearchViewModel by viewModels {
-        SearchViewModelFactory()
-    }
+    private val searchViewModel: SearchViewModel by viewModels()
+
 
     // sharedViewModel 선언
     // activityViewModels() 사용 시 Activity의 라이프사이클에 의해 생존주기 결정되며, 같은 액티비티안에서 같은 데이터 공유가능
