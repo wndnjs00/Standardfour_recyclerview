@@ -14,7 +14,8 @@ internal class HttpRequestInterceptor : Interceptor {
                 .run {
                     //Token 필요할 시 여기에 넣기! 이렇게 하면 call할 때마다 @Header 추가 안해줘도됨.
                     //this.addHeader("Token", token)
-                    this.addHeader("Token", "Bearer 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")
+//                    this.addHeader("Token", "token값")
+                    this
                 }
                 .build()
         )

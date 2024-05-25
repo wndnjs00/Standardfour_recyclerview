@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.example.standardfour_recyclerview.databinding.FragmentGithubSearchUsersBinding
+import com.example.standardfour_recyclerview.presentation.search.model.GitHubUser
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -37,6 +38,7 @@ class GitHubSearchUsersFragment : Fragment() {
             // 어뎁터 클릭시
             // 토글버튼 클릭시, viewModel을 통해 좋아요 클릭한 아이템 가져옴
             searchViewModel.setFavoriteItem(it)
+//            searchViewModel.insertFavoriteGitHubUser(it)
         }
     }
 
