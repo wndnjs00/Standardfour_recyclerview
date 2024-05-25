@@ -19,7 +19,7 @@
 //    override fun onCreate(savedInstanceState: Bundle?) {
 //        super.onCreate(savedInstanceState)
 //
-//        gitHubUserViewModel.getGitHubUserList()
+//        gitHubUserViewModel.getGitHubUserList(query = )
 //
 //        gitHubUserViewModel.getGitHubUserList.observe(this@GitHubUserActivity){ gitHubUserList ->
 //            Log.d("debug100", gitHubUserList.toString())

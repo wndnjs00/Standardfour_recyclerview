@@ -26,6 +26,7 @@ object RetrofitClient {
             .build()
     }
 
+    // Api Service 객체(SearchRemoteDataSource) 생성
     val searchGitHubUser : SearchRemoteDataSource by lazy {
         retrofit.create(SearchRemoteDataSource::class.java)
     }
