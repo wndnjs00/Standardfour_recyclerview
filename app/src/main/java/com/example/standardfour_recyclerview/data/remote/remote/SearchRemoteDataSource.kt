@@ -1,5 +1,6 @@
-package com.example.standardfour_recyclerview.data.remote
+package com.example.standardfour_recyclerview.data.remote.remote
 
+import com.example.standardfour_recyclerview.data.remote.model.GitHubUserListResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

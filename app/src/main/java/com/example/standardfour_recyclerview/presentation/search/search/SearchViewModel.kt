@@ -3,11 +3,10 @@ package com.example.standardfour_recyclerview.presentation.search.search
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.CreationExtras
-import com.example.standardfour_recyclerview.data.remote.repository.SearchRepositoryImpl
-import com.example.standardfour_recyclerview.data.remote.repository.SearchRepository
+import com.example.standardfour_recyclerview.presentation.repository.CacheRepository
+import com.example.standardfour_recyclerview.presentation.search.mapper.asFavoriteUserEntity
+import com.example.standardfour_recyclerview.presentation.repository.SearchRepository
 import com.example.standardfour_recyclerview.presentation.search.model.GitHubUser
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -17,7 +16,7 @@ import javax.inject.Inject
 // hilt 주입해줬기 때문에 Factory 안써줘도됨
 
 @HiltViewModel
-class SearchViewModel @Inject constructor(private val searchRepository: SearchRepository) : ViewModel(){
+class SearchViewModel @Inject constructor(private val searchRepository: SearchRepository, private val cacheRepository: CacheRepository) : ViewModel(){
     // LiveData 사용
     private val _getGitHubUserList : MutableLiveData<List<GitHubUser>> = MutableLiveData()
     val getGitHubUserList : LiveData<List<GitHubUser>> get() = _getGitHubUserList
@@ -25,6 +24,12 @@ class SearchViewModel @Inject constructor(private val searchRepository: SearchRe
     fun getGitHubUserList(query : String) = viewModelScope.launch {
         // "cindy" 검색값 붙잡고있음
         _getGitHubUserList.value = searchRepository.getGitHubUserList(q = query).items
+    }
+
+    fun insertFavoriteGitHubUser(gitHubUser: GitHubUser){
+        viewModelScope.launch {
+            cacheRepository.insertGitHubUser(gitHubUser.asFavoriteUserEntity())
+        }
     }
 
 

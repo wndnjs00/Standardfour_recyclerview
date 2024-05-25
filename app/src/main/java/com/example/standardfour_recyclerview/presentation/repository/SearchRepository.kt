@@ -1,4 +1,4 @@
-package com.example.standardfour_recyclerview.data.remote.repository
+package com.example.standardfour_recyclerview.presentation.repository
 
 import com.example.standardfour_recyclerview.presentation.search.model.GitHubUserList
 

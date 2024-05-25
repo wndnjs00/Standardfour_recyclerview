@@ -1,7 +1,7 @@
 package com.example.standardfour_recyclerview.presentation.search.mapper
 
-import com.example.standardfour_recyclerview.data.remote.GitHubUserListResponse
-import com.example.standardfour_recyclerview.data.remote.GitHubUserResponse
+import com.example.standardfour_recyclerview.data.remote.model.GitHubUserListResponse
+import com.example.standardfour_recyclerview.data.remote.model.GitHubUserResponse
 import com.example.standardfour_recyclerview.presentation.search.model.GitHubUser
 import com.example.standardfour_recyclerview.presentation.search.model.GitHubUserList
 

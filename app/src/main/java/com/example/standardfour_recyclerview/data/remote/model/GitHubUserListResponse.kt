@@ -1,4 +1,4 @@
-package com.example.standardfour_recyclerview.data.remote
+package com.example.standardfour_recyclerview.data.remote.model
 
 import com.google.gson.annotations.SerializedName
 

@@ -1,7 +1,6 @@
-package com.example.standardfour_recyclerview.data.remote.di
+package com.example.standardfour_recyclerview.data.remote.retrofit
 
-import com.example.standardfour_recyclerview.data.remote.SearchRemoteDataSource
-import com.example.standardfour_recyclerview.network.HttpRequestInterceptor
+import com.example.standardfour_recyclerview.data.remote.remote.SearchRemoteDataSource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,7 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 
-private const val BASE_URL = "https://api.github.com/"
+const val BASE_URL = "https://api.github.com/"
 
 @Module
 @InstallIn(SingletonComponent::class)   // 앱 전체에서 사용할 모듈이기 때문에 SingletonComponent로 설정

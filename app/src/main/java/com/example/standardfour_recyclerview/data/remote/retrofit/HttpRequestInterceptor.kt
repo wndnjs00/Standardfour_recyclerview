@@ -1,4 +1,4 @@
-package com.example.standardfour_recyclerview.network
+package com.example.standardfour_recyclerview.data.remote.retrofit
 
 import okhttp3.Interceptor
 import okhttp3.Response
